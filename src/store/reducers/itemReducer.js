@@ -35,9 +35,12 @@ export const itemReducer = (state = initialState, action) => {
       };
 
     case ADD_ITEM:
+      let incrementer = state.items.length + 1;
       return {
         ...state,
-        
+        items: [...state.items, {
+          id: incrementer, name: action.payload
+        }],
       };
 
     case DELETE_ITEM:

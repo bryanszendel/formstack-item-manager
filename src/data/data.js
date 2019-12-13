@@ -1,7 +1,7 @@
 const data = [
-  {name: 'Item1'},
-  {name: 'Item2'},
-  {name: 'Item3'},
+  {id: 1, name: 'Item1'},
+  {id: 2, name: 'Item2'},
+  {id: 3, name: 'Item3'},
 ]
 
 export default data;

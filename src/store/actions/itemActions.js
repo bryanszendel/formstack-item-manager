@@ -16,8 +16,10 @@ export const getItems = () => {
   }
 }
 
-export const addItem = (body) => {
-  
+export const addItem = (item) => {
+  return dispatch => {
+    dispatch({ type: ADD_ITEM, payload: item });
+  }
 }
 
 export const deleteItem = (id) => {
