@@ -28,7 +28,7 @@ const ItemList = (props) => {
 									></Button>
 								</div> : null}
 								{item.created_at ? 
-								<List.Description >
+								<List.Description style={{marginRight: 30}} >
 									created: {item.created_at}
 								</List.Description> : null}
 							</List.Content>
