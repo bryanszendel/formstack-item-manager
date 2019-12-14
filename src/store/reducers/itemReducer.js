@@ -45,6 +45,8 @@ export const itemReducer = (state = initialState, action) => {
       
 
     case ADD_ITEM:
+      const today = new Date()
+      const formatted = `${today.getMonth() + 1}-${today.getDate()}-${today.getFullYear()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`
       let ids = state.items[0] ? state.items.map(item => {
         return item.id
       }) : [1]
@@ -57,7 +59,7 @@ export const itemReducer = (state = initialState, action) => {
           id: idValue, 
           name: action.payload, 
           selected: false, 
-          created_at: Date.now()
+          created_at: formatted
         }],
       };
 

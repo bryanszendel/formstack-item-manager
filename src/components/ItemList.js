@@ -16,10 +16,9 @@ const ItemList = (props) => {
 							className={`${!item.selected ? 'items' : 'items-selected'}`}
 							verticalAlign="middle"
 							style={{position: 'relative'}}
-							
 						>
-							<List.Content style={{height: '100%'}}>
-								<List.Description verticalAlign={'middle'} style={{ fontSize: 20, height: '100%', display: 'flex', alignItems: 'center' }}>{item.name}</List.Description>
+							<List.Content style={{height: '100%', display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
+								<List.Header verticalAlign={'middle'} style={{ fontSize: 20, paddingRight: 10}}>{item.name}</List.Header>
 								{item.selected ? <div style={{position: 'absolute', right: '5px', top: '5px', bottom: '5px'}}>
 									<Button 
 										onClick={() => props.deleteItem(item.id)}
@@ -28,6 +27,10 @@ const ItemList = (props) => {
 										circular={true}
 									></Button>
 								</div> : null}
+								{item.created_at ? 
+								<List.Description >
+									created: {item.created_at}
+								</List.Description> : null}
 							</List.Content>
 						</List.Item>
 					// </div>
