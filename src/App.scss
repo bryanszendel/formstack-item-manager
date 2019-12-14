@@ -1,8 +1,7 @@
 .App {
   text-align: center;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -11,38 +10,29 @@
   }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.item-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .item-container {
+    width: 100%;
   }
 }
 
 .items {
   cursor: pointer;
   user-select: none;
-  // display: 'flex';
-  height: 60px;
-  // justify-content: 'center';
-  // align-items: 'center';
-  // padding-top: 20px;
-  // padding-bottom: 20px;
-  // border: 1px solid black;
-  // padding: 25;
+  height: 50px;
   background-color: white;
 }
 
 .items-selected {
   cursor: pointer;
   user-select: none;
-  // display: 'flex';
-  height: 60px;
-  // justify-content: 'center';
-  // align-items: 'center';
-  // padding-top: 20px;
-  // padding-bottom: 20px;
-  // padding: 5;
-  background-color: gainsboro;
+  height: 50px;
+  background-color: #E0E1E2;
 }

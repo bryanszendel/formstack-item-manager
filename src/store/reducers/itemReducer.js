@@ -45,16 +45,19 @@ export const itemReducer = (state = initialState, action) => {
       
 
     case ADD_ITEM:
-      let ids2 = state.items[0] ? state.items.map(item => {
+      let ids = state.items[0] ? state.items.map(item => {
         return item.id
       }) : [1]
-      let idValue = ids2.reduce((a,b) => {
+      let idValue = ids.reduce((a,b) => {
         return Math.max(a,b) + 1 
       })
       return {
         ...state,
         items: [...state.items, {
-          id: idValue, name: action.payload
+          id: idValue, 
+          name: action.payload, 
+          selected: false, 
+          created_at: Date.now()
         }],
       };
 

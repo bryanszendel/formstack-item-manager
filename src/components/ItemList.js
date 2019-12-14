@@ -3,29 +3,34 @@ import { List, Button, Icon } from 'semantic-ui-react'
 
 const ItemList = (props) => {
 	return (
-		<List verticalAlign="middle">
+		<List celled verticalAlign="middle">
 			{props.items ? props.items.map(item => {
 				return (
-					<div 
-						onClick={() => props.setSelected(item.id)} 
-						key={item.id} 
-						className={`${!item.selected ? 'items' : 'items-selected'}`}>
+					// <div 
+					// 	onClick={() => props.setSelected(item.id)} 
+					// 	key={item.id} 
+					// 	className={`${!item.selected ? 'items' : 'items-selected'}`}
+					// >
 						<List.Item
-							style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}
+							onClick={() => props.setSelected(item.id)}
+							className={`${!item.selected ? 'items' : 'items-selected'}`}
+							verticalAlign="middle"
+							style={{position: 'relative'}}
+							
 						>
-							{item.selected ? <List.Content >
-								<Button 
-									onClick={() => props.deleteItem(item.id)}
-									icon="delete"
-									color="red"
-									// style={{position: 'relative', left: '300px'}}
-									circular={true}
-									// size="large" 
-								></Button>
-							</List.Content> : null}
-							<List.Content style={{ fontSize: 20 }}>{item.name}</List.Content>
+							<List.Content style={{height: '100%'}}>
+								<List.Description verticalAlign={'middle'} style={{ fontSize: 20, height: '100%', display: 'flex', alignItems: 'center' }}>{item.name}</List.Description>
+								{item.selected ? <div style={{position: 'absolute', right: '5px', top: '5px', bottom: '5px'}}>
+									<Button 
+										onClick={() => props.deleteItem(item.id)}
+										icon="delete"
+										// color="black"
+										circular={true}
+									></Button>
+								</div> : null}
+							</List.Content>
 						</List.Item>
-					</div>
+					// </div>
 				)
 			}) : null}
 		</List>

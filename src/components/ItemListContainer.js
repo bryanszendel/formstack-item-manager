@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getItems, deleteItem, setSelected } from '../store/actions';
+import { Container } from 'semantic-ui-react';
 import ItemList from './ItemList'
 import ItemForm from './ItemForm';
 
@@ -11,10 +12,14 @@ const ItemListContainer = (props) => {
 	}, [props.isLoading])
 
 	return (
-		<div style={{width: '50%'}}>
+		<Container className="item-container">
 			<ItemForm />
-			<ItemList items={props.items} deleteItem={props.deleteItem} setSelected={props.setSelected}/>
-		</div>
+			<ItemList 
+				items={props.items} 
+				deleteItem={props.deleteItem} 
+				setSelected={props.setSelected}
+			/>
+		</Container>
 	)
 }
 
