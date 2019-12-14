@@ -6,27 +6,30 @@ import ItemList from './ItemList'
 import ItemForm from './ItemForm';
 
 const ItemListContainer = (props) => {
+	const {items, isLoading, getItems, deleteItem, setSelected} = props
 
 	useEffect(() => {
-		props.getItems()
-	}, [props.isLoading])
+		getItems()
+		console.log('useEffect')
+	}, [isLoading])
 
 	return (
 		<Container className="item-container">
 			<ItemForm />
 			<ItemList 
-				items={props.items} 
-				deleteItem={props.deleteItem} 
-				setSelected={props.setSelected}
+				items={items} 
+				deleteItem={deleteItem} 
+				setSelected={setSelected}
 			/>
 		</Container>
 	)
 }
 
 const mapStateToProps = state => {
+	const { items, isLoading } = state.itemReducer
 	return {
-		items: state.itemReducer.items,
-		isLoading: state.itemReducer.isLoading
+		items: items,
+		isLoading: isLoading
 	}
 }
 

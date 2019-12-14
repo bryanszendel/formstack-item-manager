@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Button, Icon } from 'semantic-ui-react'
+import { List, Button } from 'semantic-ui-react'
 
 const ItemList = (props) => {
 	return (
@@ -12,13 +12,13 @@ const ItemList = (props) => {
 					// 	className={`${!item.selected ? 'items' : 'items-selected'}`}
 					// >
 						<List.Item
+							key={item.id}
 							onClick={() => props.setSelected(item.id)}
 							className={`${!item.selected ? 'items' : 'items-selected'}`}
-							verticalAlign="middle"
 							style={{position: 'relative'}}
 						>
 							<List.Content style={{height: '100%', display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
-								<List.Header verticalAlign={'middle'} style={{ fontSize: 20, paddingRight: 10}}>{item.name}</List.Header>
+								<List.Header style={{ fontSize: 20, paddingRight: 10}}>{item.name}</List.Header>
 								{item.selected ? <div style={{position: 'absolute', right: '5px', top: '5px', bottom: '5px'}}>
 									<Button 
 										onClick={() => props.deleteItem(item.id)}

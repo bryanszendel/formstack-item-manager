@@ -1,6 +1,8 @@
 import {
   GET_ITEMS_START,
   GET_ITEMS_SUCCESS,
+  SORT_ITEMS_START,
+  SORT_ITEMS_SUCCESS,
   SET_SELECTED,
   ADD_ITEM,
   DELETE_ITEM
@@ -13,6 +15,13 @@ export const getItems = () => {
     dispatch({ type: GET_ITEMS_START });
     console.log('DATA', data)
     dispatch({ type: GET_ITEMS_SUCCESS, payload: data });
+  }
+}
+
+export const sortItems = (param) => {
+  return dispatch => {
+    dispatch({ type: SORT_ITEMS_START })
+    dispatch({ type: SORT_ITEMS_SUCCESS, payload: param })
   }
 }
 

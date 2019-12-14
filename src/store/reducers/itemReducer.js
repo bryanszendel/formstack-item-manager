@@ -1,6 +1,8 @@
 import {
   GET_ITEMS_START,
   GET_ITEMS_SUCCESS,
+  SORT_ITEMS_START,
+  SORT_ITEMS_SUCCESS,
   SET_SELECTED,
   ADD_ITEM,
   DELETE_ITEM,
@@ -43,6 +45,43 @@ export const itemReducer = (state = initialState, action) => {
         })
       }
       
+    case SORT_ITEMS_START:
+      return {
+        ...state,
+        isLoading: true
+      }
+
+    case SORT_ITEMS_SUCCESS:
+      console.log('sort payload', action.payload)
+      const param = action.payload
+      let sortedItems = []
+      if (param === 'id' || param === 'created_at') {
+        sortedItems = state.items.sort((a,b) => {
+          return a['id'] - b['id']
+        })
+      } else if (param === 'created_atZ') {
+        sortedItems = state.items.sort((a,b) => {
+          return b['id'] - a['id']
+        })
+      } else if (param === 'nameZ') {
+        sortedItems = state.items.sort((a,b) => {
+          if (a['name'].toLowerCase() < b['name'].toLowerCase()) return 1
+          else if (a['name'].toLowerCase() > b['name'].toLowerCase()) return -1
+          return 0
+        })
+      } else {
+        sortedItems = state.items.sort((a,b) => {
+          if (a[param].toLowerCase() < b[param].toLowerCase()) return -1
+          else if (a[param].toLowerCase() > b[param].toLowerCase()) return 1
+          return 0
+        }) 
+      }
+      
+      return {
+        ...state,
+        items: sortedItems,
+        isLoading: false
+      }
 
     case ADD_ITEM:
       const today = new Date()
