@@ -35,16 +35,20 @@ export const itemReducer = (state = initialState, action) => {
       };
 
     case ADD_ITEM:
-      let incrementer = state.items.length + 1;
+      let ids = state.items.map(item => {
+        return item.id
+      })
+      let idValue = ids.reduce((a,b) => {
+        return Math.max(a,b) + 1
+      })
       return {
         ...state,
         items: [...state.items, {
-          id: incrementer, name: action.payload
+          id: idValue, name: action.payload
         }],
       };
 
     case DELETE_ITEM:
-      // let id = state.items.find(id => id === state.items['id'])
       return {
         ...state,
         items: state.items.filter(item => item.id !== action.payload)
