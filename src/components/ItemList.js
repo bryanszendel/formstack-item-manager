@@ -6,26 +6,28 @@ const ItemList = (props) => {
 		<List verticalAlign="middle">
 			{props.items ? props.items.map(item => {
 				return (
-					<List.Item 
-						key={item.id} 
+					<List.Item
+						key={item.id}
 						style={{
-							display: 'flex', 
-							justifyContent: 'center', 
+							display: 'flex',
+							justifyContent: 'center',
 							alignItems: 'center',
 							margin: 5,
-							padding: 5
+							padding: 5,
 						}} >
-						<List.Content style={{fontSize: 20}}>{item.name}</List.Content>
+						<List.Content style={{ fontSize: 20 }}>{item.name}</List.Content>
 						<List.Content>
-							<Icon 
-								name="delete"
+							<Button 
+								onClick={() => props.deleteItem(item.id)}
+								icon="delete"
 								color="red"
-								size="large"
-							></Icon>
+								circular={true}
+								// size="large" 
+							/>
 						</List.Content>
 					</List.Item>
 				)
-			}): null}
+			}) : null}
 		</List>
 	)
 }

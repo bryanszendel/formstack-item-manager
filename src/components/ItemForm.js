@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addItem } from '../store/actions';
 import { Form, Input } from 'semantic-ui-react'
@@ -13,10 +13,8 @@ const ItemForm = (props) => {
 
   const handleSubmit = () => {
     props.addItem(item)
+    setItem('')
   }
-  useEffect(() => {
-    console.log(item)
-  }, [item])
 
   return (
 		<div>

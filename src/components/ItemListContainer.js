@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getItems } from '../store/actions';
+import { getItems, deleteItem } from '../store/actions';
 import ItemList from './ItemList'
 import ItemForm from './ItemForm';
 
@@ -13,7 +13,7 @@ const ItemListContainer = (props) => {
 	return (
 		<div>
 			<ItemForm />
-			<ItemList items={props.items}/>
+			<ItemList items={props.items} deleteItem={props.deleteItem} />
 		</div>
 	)
 }
@@ -29,4 +29,5 @@ export default connect(
 	mapStateToProps,
 	{
 		getItems,
+		deleteItem
 	})(ItemListContainer);

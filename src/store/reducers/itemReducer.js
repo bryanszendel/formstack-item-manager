@@ -44,9 +44,10 @@ export const itemReducer = (state = initialState, action) => {
       };
 
     case DELETE_ITEM:
+      // let id = state.items.find(id => id === state.items['id'])
       return {
         ...state,
-    
+        items: state.items.filter(item => item.id !== action.payload)
       };
     default:
       return state;

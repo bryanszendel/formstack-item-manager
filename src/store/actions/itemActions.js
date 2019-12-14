@@ -23,5 +23,7 @@ export const addItem = (item) => {
 }
 
 export const deleteItem = (id) => {
-  
+  return dispatch => {
+    dispatch({ type: DELETE_ITEM, payload: id})
+  }
 }
