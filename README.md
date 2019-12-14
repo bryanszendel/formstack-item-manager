@@ -1,19 +1,20 @@
 # Formstack Item Manager
 Formstack Front End Engineer Assignment
 
-## Available Scripts
+## Installation Instructions
 
-In the project directory, you can run:
+Clone this repository.
+`cd` into `formstack-item-manager`.
+run `yarn` to install yarn and dependencies.
+run `yarn start` to open project.
 
-### `yarn start`
+Project will open in development mode in browser at [http://localhost:3000](http://localhost:3000)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Live Project
+To view live project, visit: 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
+### Testing
+In root directory, `formstack-item-manager`, run `yarn test` to run test suite.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.

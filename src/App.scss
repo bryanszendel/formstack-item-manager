@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.item-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .item-container {
+    width: 100%;
+  }
+}
+
+.items {
+  cursor: pointer;
+  user-select: none;
+  height: 50px;
+  background-color: white;
+}
+
+.items-selected {
+  cursor: pointer;
+  user-select: none;
+  height: 50px;
+  background-color: #E0E1E2;
+}
