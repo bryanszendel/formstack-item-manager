@@ -86,12 +86,19 @@ export const itemReducer = (state = initialState, action) => {
     case ADD_ITEM:
       const today = new Date()
       const formatted = `${today.getMonth() + 1}-${today.getDate()}-${today.getFullYear()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`
-      let ids = state.items[0] ? state.items.map(item => {
+      let ids = state.items.map(item => {
         return item.id
-      }) : [1]
-      let idValue = ids.reduce((a,b) => {
-        return Math.max(a,b) + 1 
       })
+      console.log(state.items)
+      let idValue
+      if (ids.length === 0) idValue = 1
+        else if (ids.length === 1) idValue = 2
+        else {
+          ids.reduce((a,b) => {
+          return idValue = Math.max(a,b) + 1 
+        }) 
+      }
+      console.log('idValue', idValue)
       return {
         ...state,
         items: [...state.items, {
