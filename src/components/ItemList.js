@@ -6,21 +6,26 @@ const ItemList = (props) => {
 		<List verticalAlign="middle">
 			{props.items ? props.items.map(item => {
 				return (
-					<List.Item
-						key={item.id}
-						className={`${!item.selected ? 'item' : 'item-selected'}`}
-					>
-						<List.Content style={{ fontSize: 20 }}>{item.name}</List.Content>
-						<List.Content>
-							<Button 
-								onClick={() => props.deleteItem(item.id)}
-								icon="delete"
-								color="red"
-								circular={true}
-								// size="large" 
-							/>
-						</List.Content>
-					</List.Item>
+					<div 
+						onClick={() => props.setSelected(item.id)} 
+						key={item.id} 
+						className={`${!item.selected ? 'items' : 'items-selected'}`}>
+						<List.Item
+							style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}
+						>
+							{item.selected ? <List.Content >
+								<Button 
+									onClick={() => props.deleteItem(item.id)}
+									icon="delete"
+									color="red"
+									// style={{position: 'relative', left: '300px'}}
+									circular={true}
+									// size="large" 
+								></Button>
+							</List.Content> : null}
+							<List.Content style={{ fontSize: 20 }}>{item.name}</List.Content>
+						</List.Item>
+					</div>
 				)
 			}) : null}
 		</List>

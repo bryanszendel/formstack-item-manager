@@ -1,7 +1,7 @@
 import {
   GET_ITEMS_START,
   GET_ITEMS_SUCCESS,
-  GET_ITEMS_FAILURE,
+  SET_SELECTED,
   ADD_ITEM,
   DELETE_ITEM,
 } from '../actions/actionTypes';
@@ -27,18 +27,28 @@ export const itemReducer = (state = initialState, action) => {
         items: action.payload,
         error: ''
       };
-    case GET_ITEMS_FAILURE:
+
+    case SET_SELECTED:
       return {
         ...state,
-        isLoading: false,
-        error: action.payload
-      };
+        items: state.items.map(item => {
+          if (item.id === action.payload) {
+            return {
+              ...item,
+              selected: !item.selected
+            } 
+          } else {
+            return item
+          }
+        })
+      }
+      
 
     case ADD_ITEM:
-      let ids = state.items[0] ? state.items.map(item => {
+      let ids2 = state.items[0] ? state.items.map(item => {
         return item.id
       }) : [1]
-      let idValue = ids.reduce((a,b) => {
+      let idValue = ids2.reduce((a,b) => {
         return Math.max(a,b) + 1 
       })
       return {
