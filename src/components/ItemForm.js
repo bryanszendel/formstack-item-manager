@@ -20,6 +20,8 @@ const ItemForm = (props) => {
 		<div>
       <Form onSubmit={handleSubmit}>
         <Input 
+          icon="plus"
+          iconPosition="left"
           type="text" 
           name="item"
           value={item}

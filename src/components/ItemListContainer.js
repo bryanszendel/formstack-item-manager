@@ -11,7 +11,7 @@ const ItemListContainer = (props) => {
 	}, [props.isLoading])
 
 	return (
-		<div>
+		<div style={{width: '50%'}}>
 			<ItemForm />
 			<ItemList items={props.items} deleteItem={props.deleteItem} />
 		</div>

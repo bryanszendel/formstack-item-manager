@@ -8,13 +8,8 @@ const ItemList = (props) => {
 				return (
 					<List.Item
 						key={item.id}
-						style={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
-							margin: 5,
-							padding: 5,
-						}} >
+						className={`${!item.selected ? 'item' : 'item-selected'}`}
+					>
 						<List.Content style={{ fontSize: 20 }}>{item.name}</List.Content>
 						<List.Content>
 							<Button 
