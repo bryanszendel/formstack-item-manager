@@ -15,7 +15,7 @@ const ItemList = (props) => {
 							key={item.id}
 							onClick={() => props.setSelected(item.id)}
 							className={`${!item.selected ? 'items' : 'items-selected'}`}
-							style={{position: 'relative'}}
+							style={{position: 'relative', minHeight: 60}}
 						>
 							<List.Content style={{height: '100%', display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
 								<List.Header style={{ fontSize: 20, paddingRight: 10}}>{item.name}</List.Header>
@@ -25,10 +25,11 @@ const ItemList = (props) => {
 										icon="delete"
 										// color="black"
 										circular={true}
+										data-testid="delete-icon"
 									></Button>
 								</div> : null}
 								{item.created_at ? 
-								<List.Description >
+								<List.Description style={{marginRight: 30}} >
 									created: {item.created_at}
 								</List.Description> : null}
 							</List.Content>

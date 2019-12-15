@@ -10,7 +10,6 @@ const ItemListContainer = (props) => {
 
 	useEffect(() => {
 		getItems()
-		console.log('useEffect')
 	}, [isLoading])
 
 	return (
