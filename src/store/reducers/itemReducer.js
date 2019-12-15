@@ -52,7 +52,6 @@ export const itemReducer = (state = initialState, action) => {
       }
 
     case SORT_ITEMS_SUCCESS:
-      console.log('sort payload', action.payload)
       const param = action.payload
       let sortedItems = []
       if (param === 'id' || param === 'created_at') {
@@ -89,7 +88,6 @@ export const itemReducer = (state = initialState, action) => {
       let ids = state.items.map(item => {
         return item.id
       })
-      console.log(state.items)
       let idValue
       if (ids.length === 0) idValue = 1
         else if (ids.length === 1) idValue = 2
@@ -98,7 +96,6 @@ export const itemReducer = (state = initialState, action) => {
           return idValue = Math.max(a,b) + 1 
         }) 
       }
-      console.log('idValue', idValue)
       return {
         ...state,
         items: [...state.items, {

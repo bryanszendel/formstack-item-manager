@@ -25,6 +25,7 @@ const ItemList = (props) => {
 										icon="delete"
 										// color="black"
 										circular={true}
+										data-testid="delete-icon"
 									></Button>
 								</div> : null}
 								{item.created_at ? 

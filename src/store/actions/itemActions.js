@@ -13,7 +13,6 @@ import data from '../../data/data'
 export const getItems = () => {
   return dispatch => {
     dispatch({ type: GET_ITEMS_START });
-    console.log('DATA', data)
     dispatch({ type: GET_ITEMS_SUCCESS, payload: data });
   }
 }
