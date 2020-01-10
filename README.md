@@ -1,5 +1,5 @@
-# Formstack Item Manager
-Formstack Front End Engineer Assignment
+# Item Manager
+Item Manager using React and Redux
 
 ## Installation Instructions
 Clone this repository.<br />
